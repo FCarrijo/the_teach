@@ -1,0 +1,24 @@
+<tr>
+  <td>
+    <%= agenda_professor.id %>
+  </td>
+
+  <td>
+    <%= agenda_professor.professor.nome %>
+  </td>
+  <td>
+    <%= agenda_professor.disciplina.nome %>
+  </td>
+  <td>
+    <%= agenda_professor.dia.to_s_br %>
+  </td>
+  <td>
+    <%= agenda_professor.horario %>
+  </td>
+  <td style="text-align: center">
+    <%= link_to "Editar", edit_agenda_professor_path(agenda_professor.id), class: 'btn btn-warning btn-xs' %>
+    <%= link_to "Excluir", agenda_professor_path(agenda_professor.id),
+                method: :delete, class: 'btn btn-danger btn-xs',
+                data: { "turbo-method": :delete, confirm: 'Deseja realmente excluir?' } %>
+  </td>
+</tr>

@@ -1,0 +1,31 @@
+<p style="color: green"><%= notice %></p>
+<div class="panel panel-primary">
+  <div class="panel-heading">Alunos
+    <div class="pull-right">
+      <%= link_to "Novo Aluno", new_aluno_path, class: 'btn btn-default btn-xs' %>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-striped tablesorter">
+        <thead>
+        <tr>
+          <th scope="col" style="width: 10%">ID</th>
+          <th scope="col">Nome</th>
+          <th scope="col" style="width: 10%">CPF</th>
+          <th scope="col" style="width: 10%">Email</th>
+          <th scope="col" style="width: 7%">Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <% @alunos.each do |aluno| %>
+          <%= render aluno %>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+

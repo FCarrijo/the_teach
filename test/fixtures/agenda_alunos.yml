@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  aluno: one
+  agenda_professor: one
+  observacao: MyText
+
+two:
+  aluno: two
+  agenda_professor: two
+  observacao: MyText

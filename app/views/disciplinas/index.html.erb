@@ -1,0 +1,33 @@
+<p style="color: green"><%= notice %></p>
+
+<h1></h1>
+<div class="panel panel-primary">
+  <div class="panel-heading">Disciplinas
+    <div class="pull-right">
+      <%= link_to "Nova Disciplina", new_disciplina_path, class: 'btn btn-default btn-xs' %>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-striped tablesorter">
+        <thead>
+        <tr>
+          <th scope="col" style="width: 10%">ID</th>
+          <th scope="col">Nome</th>
+          <th scope="col" style="width: 7%">Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <% @disciplinas.each do |disciplina| %>
+          <%= render disciplina %>
+
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+

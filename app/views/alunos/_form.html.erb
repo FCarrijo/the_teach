@@ -1,0 +1,102 @@
+<%= form_with(model: aluno) do |form| %>
+  <div class="panel panel-primary">
+    <div class="panel-heading" id="title_form">Aluno
+    </div>
+    <div class="panel-body">
+
+      <% if aluno.errors.any? %>
+        <div style="color: red">
+          <h2>Atenção aos erros abaixo:</h2>
+
+          <ul>
+            <% aluno.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="col-md-10">
+        <%= form.label :nome, style: "display: block" %>
+        <%= form.text_field :nome, class: 'form-control' %>
+      </div>
+
+      <div class="col-md-2">
+        <%= form.label :dta_nasc, style: "display: block" %>
+        <%= form.date_field :dta_nasc, class: 'form-control' %>
+      </div>
+
+      <div class="col-md-4">
+        <%= form.label :cpf, style: "display: block" %>
+        <%= form.text_field :cpf, class: 'form-control' %>
+      </div>
+      <div class="col-md-4">
+        <%= form.label :email, style: "display: block" %>
+        <%= form.text_field :email, class: 'form-control' %>
+      </div>
+      <div class="col-md-4">
+        <%= form.label :contato, style: "display: block" %>
+        <%= form.text_field :contato, class: 'form-control' %>
+      </div>
+      <div class="col-md-6">
+        <%= form.label :nome_mae, style: "display: block" %>
+        <%= form.text_field :nome_mae, class: 'form-control' %>
+      </div>
+
+      <div class="col-md-6">
+        <%= form.label :nome_pai, style: "display: block" %>
+        <%= form.text_field :nome_pai, class: 'form-control' %>
+      </div>
+      <div class="col-md-6">
+        <%= form.label :cep, style: "display: block" %>
+        <%= form.text_field :cep, class: 'form-control' %>
+      </div>
+
+      <div class="col-md-6">
+        <%= form.label :logradouro, style: "display: block" %>
+        <%= form.text_field :logradouro, class: 'form-control' %>
+      </div>
+
+      <div class="col-md-6">
+        <%= form.label :bairro, style: "display: block" %>
+        <%= form.text_field :bairro, class: 'form-control' %>
+      </div>
+
+      <div class="col-md-6">
+        <%= form.label :municipio_id, style: "display: block" %>
+        <%#= h form.text_field :municipio_id, class: 'form-control select2ajaxFull',-->
+                           label: 'Município',
+                           placeholder: "Digite o Município",
+                           data: { url: autocomplete_municipios_path } %>
+
+        <%= form.select :municipio_id, Municipio.eager_load(:estado).collect { |e| ["#{e.nome} (#{e.estado.sigla})", e.id] },
+                        { class: 'form-control' }, { style: 'width: 100%' } %>
+      </div>
+
+      <div class="col-md-10">
+        <%= form.label :escolaridade_id, style: "display: block" %>
+        <%= form.select :escolaridade_id, Escolaridade.all.collect { |e| [e.nome, e.id] },
+                        { class: 'form-control' }, { style: 'width: 100%' } %>
+      </div>
+
+      <div class="col-md-2">
+        <%= form.label "Concluída?", style: "display: block" %>
+        <%= form.check_box :esc_concluida %>
+      </div>
+
+    </div>
+    <div class="panel-footer">
+
+      <%= form.submit 'Salvar' %>
+      <div class="pull-right">
+        <%= link_to "Voltar a Lista", alunos_path %>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+
+<script>
+    $('#aluno_municipio_id').select2();
+    $('#aluno_escolaridade_id').select2();
+</script>

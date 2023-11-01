@@ -1,0 +1,19 @@
+<tr>
+  <td>
+    <%= municipio.id %>
+  </td>
+  <td>
+    <%= municipio.nome %>
+  </td>
+
+  <td>
+    <%= municipio.estado.nome %>
+  </td>
+
+  <td style="text-align: center">
+    <%= link_to "Editar", edit_municipio_path(municipio.id), class: 'btn btn-warning btn-xs' %>
+    <%= link_to "Excluir", municipio_path(municipio.id),
+                method: :delete, class: 'btn btn-danger btn-xs',
+                data: { "turbo-method": :delete, confirm: 'Deseja realmente excluir?' } %>
+  </td>
+</tr>

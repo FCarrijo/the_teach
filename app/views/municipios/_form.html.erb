@@ -1,0 +1,36 @@
+<%= form_with(model: municipio) do |form| %>
+  <div class="panel panel-primary">
+    <div class="panel-heading" id="title_form">Município
+    </div>
+    <div class="panel-body">
+      <% if municipio.errors.any? %>
+        <div style="color: red">
+          <h2>Atenção aos erros abaixo:</h2>
+          <ul>
+            <% municipio.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div>
+        <%= form.label :nome, style: "display: block" %>
+        <%= form.text_field :nome %>
+      </div>
+
+      <div>
+        <%= form.label :estado_id, style: "display: block" %>
+        <%= form.select :estado_id, Estado.all.collect { |e| [e.sigla, e.id] }, class: 'form-control'%>
+      </div>
+    </div>
+
+    <div class="panel-footer">
+
+      <%= form.submit 'Salvar' %>
+      <div class="pull-right">
+        <%= link_to "Voltar a Lista", municipios_path %>
+      </div>
+    </div>
+  </div>
+<% end %>

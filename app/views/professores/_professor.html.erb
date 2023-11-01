@@ -1,0 +1,17 @@
+<tr>
+  <td>
+    <%= professor.id %>
+  </td>
+  <td>
+    <%= professor.nome %>
+  </td>
+  <td>
+    <%= professor.email %>
+  </td>
+  <td style="text-align: center">
+    <%= link_to "Editar", edit_professor_path(professor.id), class: 'btn btn-warning btn-xs' %>
+    <%= link_to "Excluir", professor_path(professor.id),
+                method: :delete, class: 'btn btn-danger btn-xs',
+                data: { "turbo-method": :delete, confirm: 'Deseja realmente excluir?' } %>
+  </td>
+</tr>

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Interesse alunos</h1>
+
+<div id="interesse_alunos">
+  <% @interesse_alunos.each do |interesse_aluno| %>
+    <%= render interesse_aluno %>
+    <p>
+      <%= link_to "Show this interesse aluno", interesse_aluno %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New interesse aluno", new_interesse_aluno_path %>

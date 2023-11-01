@@ -1,0 +1,33 @@
+<%= form_with(model: escolaridade) do |form| %>
+  <div class="panel panel-primary">
+    <div class="panel-heading" id="title_form">Estado
+    </div>
+    <div class="panel-body">
+      <% if escolaridade.errors.any? %>
+        <div style="color: red">
+          <h2>Atenção aos erros abaixo:</h2>
+
+          <ul>
+            <% escolaridade.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div>
+        <%= form.label :nome, style: "display: block" %>
+        <%= form.text_field :nome %>
+      </div>
+
+      <div class="panel-footer">
+
+        <%= form.submit 'Salvar' %>
+        <div class="pull-right">
+          <%= link_to "Voltar a Lista", estados_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% end %>

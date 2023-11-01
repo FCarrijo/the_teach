@@ -1,0 +1,55 @@
+<%= form_with(model: agenda_professor) do |form| %>
+  <div class="panel panel-primary">
+    <div class="panel-heading" id="title_form">Agenda do Professor
+    </div>
+    <div class="panel-body">
+      <% if agenda_professor.errors.any? %>
+        <div style="color: red">
+          <h2>Atenção aos erros abaixo:</h2>
+          <ul>
+            <% agenda_professor.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="row">
+        <div class="col-md-2">
+          <%= form.label :dia, style: "display: block" %>
+          <%= form.date_field :dia %>
+        </div>
+        <div class="col-md-2">
+          <%= form.label :horario, style: "display: block" %>
+          <%= form.text_field :horario %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10">
+          <%= form.label :professor_id, style: "display: block" %>
+          <%= form.select :professor_id, Professor.all.collect { |e| [e.nome, e.id] },
+                          { class: 'form-control' }, { style: 'width: 100%' } %>
+        </div>
+
+        <div class="col-md-10">
+          <%= form.label :disciplina_id, style: "display: block" %>
+          <%= form.select :disciplina_id, Disciplina.all.collect { |e| [e.nome, e.id] },
+                          { class: 'form-control' }, { style: 'width: 100%' } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-footer">
+
+      <%= form.submit 'Salvar' %>
+      <div class="pull-right">
+        <%= link_to "Voltar a Lista", agenda_professores_path %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<script>
+    $('#agenda_professor_disciplina_id').select2();
+    $('#agenda_professor_professor_id').select2();
+</script>

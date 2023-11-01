@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+<div class="panel panel-primary">
+  <div class="panel-heading">Agenda de Professores
+    <div class="pull-right">
+      <%= link_to "Nova Agenda", new_agenda_professor_path, class: 'btn btn-default btn-xs' %>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-striped tablesorter">
+        <thead>
+        <tr>
+          <th scope="col" style="width: 10%">ID</th>
+          <th scope="col">Professor</th>
+          <th scope="col" style="width: 25%">Disciplina</th>
+          <th scope="col" style="width: 10%">Data</th>
+          <th scope="col" style="width: 7%">Horário</th>
+          <th scope="col" style="width: 7%">Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <% @agenda_professores.each do |agenda_professor| %>
+          <%= render agenda_professor %>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+

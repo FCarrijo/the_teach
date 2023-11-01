@@ -1,0 +1,93 @@
+<%= form_with(model: agenda_aluno) do |form| %>
+  <div class="panel panel-primary">
+    <div class="panel-heading" id="title_form">Agenda do Aluno
+    </div>
+    <div class="panel-body">
+      <% if agenda_aluno.errors.any? %>
+        <div style="color: red">
+          <h2>Atenção aos erros abaixo:</h2>
+          <ul>
+            <% agenda_aluno.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="row">
+        <div class="col-md-12 div_aluno">
+          <%= form.label :aluno_id, style: "display: block" %>
+          <%= form.select :aluno_id, Aluno.all.collect { |e| [e.nome.upcase, e.id] },
+                          { class: 'form-control' }, { style: 'width: 100%' } %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <%= form.label "Disciplina", style: "display: block" %>
+          <%= select_tag :disciplina_id, options_from_collection_for_select(Disciplina.all, 'id', 'nome'),
+                         { include_blank: true, class: 'form-control', style: 'width: 100%' } %>
+
+          <%#= form.label :agenda_professor_id, style: "display: block" %>
+          <%#= form.select :agenda_professor_id, AgendaProfessor.all.collect { |e| ["#{e.professor.nome.upcase} - #{e.disciplina.nome} - Data: #{e.dia.to_s_br} (#{e.horario})", e.id] },
+                          { class: 'form-control' }, { style: 'width: 100%' } %>
+        </div>
+      </div>
+
+      <div class="row" style="
+        <% form.object.agenda_professor_id.present? ? '' : 'display: none' %>" id="div_agenda_professor_id">
+        <div class="col-md-12">
+          <%= form.label "Agenda do Professor", style: "display: block" %>
+          <%= form.select :agenda_professor_id, AgendaProfessor.all.collect { |e| ["#{e.professor.nome.upcase} - Disciplina: #{e.disciplina.nome} - Data: #{e.dia.to_s_br} (#{e.horario})", e.id] },
+                          { include_blank: true, class: 'form-control' }, { style: 'width: 100%' } %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <%= form.label :observacao, style: "display: block" %>
+          <%= form.text_area :observacao,
+                             { class: 'form-control', rows: 5, style: 'width: 100%' } %>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer">
+
+      <%= form.submit 'Salvar' %>
+      <div class="pull-right">
+        <%= link_to "Voltar a Lista", agenda_alunos_path %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<script>
+    $('#agenda_aluno_aluno_id').select2();
+    $('#agenda_aluno_agenda_professor_id').select2();
+
+    $('#disciplina_id').on('change', function () {
+        $.ajax({
+            url: '<%= busca_professores_disciplina_agenda_professores_path %>',
+            type: 'GET',
+            dataType: 'json', // Especifique o tipo de dados esperado, como JSON
+            data: {disciplina_id: this.value},
+            success: function (data) {
+                // Limpe as opções atuais do select
+                $('#agenda_aluno_agenda_professor_id').empty();
+                $('#div_agenda_professor_id').show();
+                $('#s2id_agenda_aluno_agenda_professor_id').find('span').empty()
+                $('#agenda_aluno_agenda_professor_id').append($('<option>', {
+                    value: '',
+                    text: 'Selecione uma opção'
+                }));
+
+                // Preencha as opções do select com base nos dados recebidos
+                $.each(data, function (index, item) {
+                    $('#agenda_aluno_agenda_professor_id').append($('<option>', {
+                        value: item.id, // Substitua 'valor' com o nome da propriedade que contém o valor
+                        text: item.descricao // Substitua 'texto' com o nome da propriedade que contém o texto da opção
+                    }));
+                });
+            }
+        });
+    });
+</script>

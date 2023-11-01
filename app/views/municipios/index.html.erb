@@ -1,0 +1,28 @@
+<p style="color: green"><%= notice %></p>
+<div class="panel panel-primary">
+  <div class="panel-heading">Municipios
+    <div class="pull-right">
+      <%= link_to "Novo Municipio", new_municipio_path, class: 'btn btn-default btn-xs' %>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-striped tablesorter">
+        <thead>
+        <tr>
+          <th scope="col" style="width: 10%">ID</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Estado</th>
+          <th scope="col" style="width: 10%">Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @municipios.each do |municipio| %>
+          <%= render municipio %>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

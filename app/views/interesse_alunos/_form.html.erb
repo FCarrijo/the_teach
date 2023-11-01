@@ -1,0 +1,27 @@
+<%= form_with(model: interesse_aluno) do |form| %>
+  <% if interesse_aluno.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(interesse_aluno.errors.count, "error") %> prohibited this interesse_aluno from being saved:</h2>
+
+      <ul>
+        <% interesse_aluno.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :aluno_id, style: "display: block" %>
+    <%= form.text_field :aluno_id %>
+  </div>
+
+  <div>
+    <%= form.label :area_id, style: "display: block" %>
+    <%= form.text_field :area_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

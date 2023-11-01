@@ -1,0 +1,18 @@
+<tr id="<%= dom_id estado %>">
+  <td>
+    <%= estado.id %>
+  </td>
+  <td>
+    <%= estado.nome %>
+  </td>
+  <td>
+    <%= estado.sigla %>
+  </td>
+  <td style="text-align: center">
+    <%= link_to "Editar", edit_estado_path(estado.id), class: 'btn btn-warning btn-xs' %>
+    <%= link_to "Excluir", estado_path(estado.id),
+                method: :delete, class: 'btn btn-danger btn-xs',
+                data: { "turbo-method": :delete, confirm: 'Deseja realmente excluir?' } %>
+  </td>
+
+</tr>

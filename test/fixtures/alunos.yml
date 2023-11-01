@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  cpf: MyString
+  email: MyString
+  dta_nasc: 2023-10-24
+  nome_mae: MyString
+  nome_pai: MyString
+  endereco: MyString
+  logradouro: MyString
+  bairro: MyString
+  municipio: one
+  escolaridade: one
+  esc_concluida: false
+
+two:
+  nome: MyString
+  cpf: MyString
+  email: MyString
+  dta_nasc: 2023-10-24
+  nome_mae: MyString
+  nome_pai: MyString
+  endereco: MyString
+  logradouro: MyString
+  bairro: MyString
+  municipio: two
+  escolaridade: two
+  esc_concluida: false
