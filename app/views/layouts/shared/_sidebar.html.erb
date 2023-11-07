@@ -1,0 +1,77 @@
+<div id="sidebar" class="sidebar                  responsive                    ace-save-state">
+  <script type="text/javascript">
+      try {
+          ace.settings.loadState('sidebar')
+      } catch (e) {
+      }
+  </script>
+
+  <ul class="nav nav-list">
+    <li class="active">
+      <a href="<%= principal_index_path %>">
+        <i class="menu-icon fa fa-tachometer"></i>
+        <span class="menu-text"> Início </span>
+      </a>
+
+      <b class="arrow"></b>
+    </li>
+
+
+    <li class="">
+      <a href="<%= agenda_alunos_path %>">
+        <i class="menu-icon fa fa-user"></i>
+        <span class="menu-text"> Minha Agenda </span>
+      </a>
+      <b class="arrow"></b>
+    </li>
+
+    <li class="">
+      <a href="#" class="dropdown-toggle">
+        <i class="menu-icon fa fa-tag"></i>
+        <span class="menu-text">Cadastros Básicos  </span>
+
+        <b class="arrow fa fa-angle-down"></b>
+      </a>
+
+      <b class="arrow"></b>
+
+      <ul class="submenu nav-hide" style="display: none;">
+        <li class="">
+          <%= link_to "Estados", estados_path %>
+          <i class="menu-icon fa fa-caret-right"></i>
+          <b class="arrow"></b>
+        </li>
+        <li class="">
+          <%= link_to "Países", paises_path %>
+          <i class="menu-icon fa fa-caret-right"></i>
+          <b class="arrow"></b>
+        </li>
+        <li class="">
+          <%= link_to "Municípios", municipios_path %>
+          <i class="menu-icon fa fa-caret-right"></i>
+          <b class="arrow"></b>
+        </li>
+        <li class="">
+          <%= link_to "Escolaridade", escolaridades_path %>
+          <i class="menu-icon fa fa-caret-right"></i>
+          <b class="arrow"></b>
+        </li>
+        <li class="">
+          <%= link_to "Disciplinas", disciplinas_path %>
+          <i class="menu-icon fa fa-caret-right"></i>
+          <b class="arrow"></b>
+        </li>
+        <li class="">
+          <%= link_to "Áreas", areas_path %>
+          <i class="menu-icon fa fa-caret-right"></i>
+          <b class="arrow"></b>
+        </li>
+        <li class="">
+          <%= link_to "Professores", professores_path %>
+          <i class="menu-icon fa fa-caret-right"></i>
+          <b class="arrow"></b>
+        </li>
+      </ul>
+    </li>
+  </ul><!-- /.nav-list -->
+</div>
