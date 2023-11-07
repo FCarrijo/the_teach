@@ -25,8 +25,10 @@
                   </h4>
                   <div class="space-6"></div>
                   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                    <p class="notice"><%= notice %></p>
+                    <p class="alert"><%= alert %></p>
                     <div class="field">
-                      <%= f.label :email, class: 'control-label' %><br />
+                      <%= f.label :email, class: 'control-label' %><br/>
                       <span class="block input-icon input-icon-right">
                           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "E-mail", class: 'form-control' %>
                         <i class="ace-icon fa fa-user"></i>
@@ -34,9 +36,9 @@
                     </div>
 
                     <div class="field"><br>
-                      <%= f.label :senha, class: 'control-label'  %><br />
+                      <%= f.label :senha, class: 'control-label' %><br/>
                       <span class="block input-icon input-icon-right">
-                          <%= f.password_field :password, autocomplete: "current-password", placeholder: "Senha", class: 'form-control'  %>
+                          <%= f.password_field :password, autocomplete: "current-password", placeholder: "Senha", class: 'form-control' %>
                         <i class="ace-icon fa fa-lock"></i>
                         </span>
                     </div>
