@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
+
   resources :interesse_alunos
   resources :agenda_alunos
   resources :agenda_professores do

@@ -1,15 +1,28 @@
 class ApplicationController < ActionController::Base
-  # before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :authenticate_user!
+  protect_from_forgery with: :exception
+  before_action :authenticate_user!, unless: :devise_controller?
+  # skip_before_filter :verify_authenticity_token
+  # layout :layout_by_resource
+  #
+  # def layout_by_resource
+  #   if ['sign_in'].include?(action_name)
+  #     "login"
+  #   else
+  #     "application"
+  #   end
+  # end
 
-  def authenticate_user!
-    if user_signed_in?
-      # O usuário está autenticado, continue normalmente
-    else
-      # O usuário não está autenticado, redirecione para a tela de login
-      redirect_to user_session_path
-    end
-  end
+  # before_action :configure_permitted_parameters, if: :devise_controller?
+  # before_action :authenticate_user!
+  #
+  # def authenticate_user!
+  #   if user_signed_in?
+  #     # O usuário está autenticado, continue normalmente
+  #   else
+  #     # O usuário não está autenticado, redirecione para a tela de login
+  #     redirect_to user_session_path
+  #   end
+  # end
 
   # before_action :configure_permitted_parameters, if: :devise_controller?
 
