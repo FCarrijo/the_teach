@@ -8,7 +8,7 @@ Está é uma aplicação destinada a professores e alunos que buscam aulas parti
 
 As tecnologias utilizadas neste projeto são:
 
-* Ruby version ruby "3.2.2"
+* Ruby version ruby 3.2.2
 * Ruby on Rails version 7.0.4
 * Mysql
 
@@ -29,32 +29,32 @@ As tecnologias utilizadas neste projeto são:
 * cancancan
 * activerecord-session_store
 
+
+## Used Tools
+
+* [DBBeaver](https://dbeaver.io/download/)
+
+* Relationship Entity Diagram - DER
+  ![Chat Preview](https://github.com/FCarrijo/the_teach/blob/master/public/DER.png)
+
+
 ## Getting started
 
-* Instalar o ruby
+* Instalar o rbenv
 
-> $ 
 
-* To create the bank and do as migrations:
-
-> $ sudo docker-compose run --rm app bundle exec rake db:create db:migrate
-
-* To install as gens:
-
-> $ sudo docker-compose run --rm app bundle install
-
-* To run the project:
-
-> $ sudo docker-compose up
 
 ## Features
 
 
 ## Links
 
-- Project homepage:
+- Como Acessar:
     - User: admin@theteach.com.br
     - Password: 1234
+  
+Instruções:
+    
 
 - Repository: https://github.com/FCarrijo/the_teach
     - In case of sensitive bugs like security vulnerabilities, please contact
