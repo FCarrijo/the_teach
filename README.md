@@ -56,11 +56,11 @@ As tecnologias utilizadas neste projeto são:
 Instruções:
     O Administrador precisa cadastrar os alunos e professores. A senha padrão para o Aluno é '1234'. Ao logar com o aluno, ele poderá alterar seu cadastro, visualizar os professores e agendar um aula particular em Minha Agenda.
 
-    * Tela Principal do Aluno
-    ![Chat Preview](https://github.com/FCarrijo/the_teach/blob/master/public/principal_aluno.png)
-    * Agenda do Aluno
-    ![Chat Preview](https://github.com/FCarrijo/the_teach/blob/master/public/tela_principal.png)
-    
+* Tela Principal do Aluno
+![Chat Preview](https://github.com/FCarrijo/the_teach/blob/master/public/principal_aluno.png)
+* Agenda do Aluno
+![Chat Preview](https://github.com/FCarrijo/the_teach/blob/master/public/tela_principal.png)
+
 
 - Repository: https://github.com/FCarrijo/the_teach
     - In case of sensitive bugs like security vulnerabilities, please contact
