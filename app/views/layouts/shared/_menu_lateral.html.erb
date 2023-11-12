@@ -38,6 +38,25 @@
         </a>
         <b class="arrow"></b>
       </li>
+    <% else %>
+      <% if can? :manage, :Professor %>
+        <li class="">
+          <a href="<%= professores_path %>">
+            <i class="menu-icon fa fa-user"></i>
+            <span class="menu-text"> Professores</span>
+          </a>
+          <b class="arrow"></b>
+        </li>
+      <% end %>
+      <% if can? :manage, :Aluno %>
+        <li class="">
+          <a href="<%= alunos_path %>">
+            <i class="menu-icon fa fa-caret-right"></i>
+            <span class="menu-text"> Alunos </span>
+          </a>
+          <b class="arrow"></b>
+        </li>
+      <% end %>
     <% end %>
 
     <% if (can? :manage, :Estado) ||
@@ -45,7 +64,6 @@
       (can? :manage, :Municipio) ||
       (can? :manage, :Escolaridade) ||
       (can? :manage, :Disciplina) ||
-      (can? :manage, :Professor) ||
       (can? :manage, :Area) %>
       <li class="">
         <a href="#" class="dropdown-toggle">
@@ -100,20 +118,7 @@
               <b class="arrow"></b>
             </li>
           <% end %>
-          <% if can? :manage, :Professor %>
-            <li class="">
-              <%= link_to "Professores", professores_path %>
-              <i class="menu-icon fa fa-caret-right"></i>
-              <b class="arrow"></b>
-            </li>
-          <% end %>
-          <% if can? :manage, :Aluno %>
-            <li class="">
-              <%= link_to "Alunos", alunos_path %>
-              <i class="menu-icon fa fa-caret-right"></i>
-              <b class="arrow"></b>
-            </li>
-          <% end %>
+
         </ul>
       </li>
     <% end %>

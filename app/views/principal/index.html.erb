@@ -15,4 +15,18 @@
     <span class="menu-text"> Professores </span>
   </a>
 
+<% else %>
+  <% if can? :manage, :Aluno %>
+    <a href="<%= alunos_path %>" class="btn btn-info">
+      <i class="menu-icon fa fa-graduation-cap"></i>
+      <span class="menu-text"> Alunos </span>
+    </a>
+  <% end %>
+
+  <% if can? :manage, :Professor %>
+    <a href="<%= area_aluno_docentes_path %>" class="btn btn-info">
+      <i class="menu-icon fa fa-graduation-cap"></i>
+      <span class="menu-text"> Professores </span>
+    </a>
+  <% end %>
 <% end %>
