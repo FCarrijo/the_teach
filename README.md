@@ -1,10 +1,8 @@
-![Logo of the project](https://github.com/FCarrijo/the_teach/tree/master/public/logo.jpg)
-
 ## TheTeach
 
 Está é uma aplicação destinada a professores e alunos que buscam aulas particulares das mais variadas disciplinas.
 
-![Chat Preview](https://github.com/FCarrijo/the_teach/tree/master/public/tela_principal.png)
+![Chat Preview](https://github.com/FCarrijo/the_teach/blob/master/public/tela_principal.png)
 
 ## Technology
 
