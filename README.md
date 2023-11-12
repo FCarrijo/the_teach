@@ -31,9 +31,9 @@ As tecnologias utilizadas neste projeto são:
 
 ## Getting started
 
-* To build the containers:
+* Instalar o ruby
 
-> $ sudo docker-compose build
+> $ 
 
 * To create the bank and do as migrations:
 
@@ -49,24 +49,16 @@ As tecnologias utilizadas neste projeto são:
 
 ## Features
 
-The main features of the application are;
-
-* Customer record management.
-* Records Management of Employees.
-* Product and service management.
-* Schedules
-* Financial reports
-* Business indicators
 
 ## Links
 
 - Project homepage:
-    - User: test@barbershop.com.br
-    - Password: Tes2018@
+    - User: admin@theteach.com.br
+    - Password: 1234
 
-- Repository: https://github.com/karlysson/barbershop
+- Repository: https://github.com/FCarrijo/the_teach
     - In case of sensitive bugs like security vulnerabilities, please contact
-      karlysson.alves@gmail.com directly instead of using issue tracker. We value your effort
+      fabianecarrijo21@gmail.com directly instead of using issue tracker. We value your effort
       to improve the security and privacy of this project!
 
 ## Versioning
@@ -75,11 +67,9 @@ The main features of the application are;
 
 ## Authors
 
-* **Jorge M Toledo**
-* **Karlysson Alves**
-* **Ricardo Silva**
+* **Fabiane Carrijo Gonçalves**
 
-See also the list of [contributors](https://github.com/karlysson/barbershop/graphs/contributors) who participated in
+See also the list of [contributors](https://github.com/FCarrijo/the_teach/graphs/contributors) who participated in
 this project.
 
 ## Contributing
