@@ -58,6 +58,8 @@ gem "paperclip"
 gem 'font-awesome-rails'
 gem "select2-rails"
 gem 'devise'
+gem 'cancancan'
+gem 'activerecord-session_store'
 # Use Sass to process CSS
 # gem "sassc-rails"
 

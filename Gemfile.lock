@@ -54,6 +54,13 @@ GEM
     activerecord (7.0.8)
       activemodel (= 7.0.8)
       activesupport (= 7.0.8)
+    activerecord-session_store (2.1.0)
+      actionpack (>= 6.1)
+      activerecord (>= 6.1)
+      cgi (>= 0.3.6)
+      multi_json (~> 1.11, >= 1.11.2)
+      rack (>= 2.0.8, < 4)
+      railties (>= 6.1)
     activestorage (7.0.8)
       actionpack (= 7.0.8)
       activejob (= 7.0.8)
@@ -106,6 +113,7 @@ GEM
     brstring (3.3.0)
       activesupport (>= 3.0.0)
     builder (3.2.4)
+    cancancan (3.5.0)
     capybara (3.39.2)
       addressable
       matrix
@@ -115,6 +123,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    cgi (0.4.0)
     climate_control (0.2.0)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
@@ -178,6 +187,7 @@ GEM
     mini_mime (1.1.5)
     minitest (5.20.0)
     msgpack (1.7.2)
+    multi_json (1.15.0)
     mysql2 (0.5.5)
     net-imap (0.4.2)
       date
@@ -315,9 +325,11 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  activerecord-session_store
   bootsnap
   bootstrap_form
   brazilian-rails
+  cancancan
   capybara
   debug
   devise

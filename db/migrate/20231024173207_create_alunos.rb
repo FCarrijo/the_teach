@@ -12,7 +12,6 @@ class CreateAlunos < ActiveRecord::Migration[7.0]
       t.integer :municipio_id#, null: false, foreign_key: true
       t.integer :escolaridade_id#, null: false, foreign_key: true
       t.boolean :esc_concluida
-
       t.timestamps
     end
   end

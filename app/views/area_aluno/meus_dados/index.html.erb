@@ -1,52 +1,26 @@
-<%= form_with(model: aluno) do |form| %>
+<p style="color: green"><%= notice %></p>
+<%= form_with(model: @aluno, url: area_aluno_meus_dado_path(id: @aluno.id), method: :put) do |form| %>
   <div class="panel panel-primary">
-    <div class="panel-heading" id="title_form">Aluno
+    <div class="panel-heading">Meus Dados
     </div>
     <div class="panel-body">
-
-      <% if aluno.errors.any? %>
+      <% if @aluno.errors.any? %>
         <div style="color: red">
           <h2>Atenção aos erros abaixo:</h2>
 
           <ul>
-            <% aluno.errors.each do |error| %>
+            <% @aluno.errors.each do |error| %>
               <li><%= error.full_message %></li>
             <% end %>
           </ul>
         </div>
       <% end %>
 
-      <div class="col-md-10">
-        <%= form.label :nome, style: "display: block" %>
-        <%= form.text_field :nome, class: 'form-control' %>
-      </div>
-
-      <div class="col-md-2">
-        <%= form.label :dta_nasc, style: "display: block" %>
-        <%= form.date_field :dta_nasc, class: 'form-control' %>
-      </div>
-
-      <div class="col-md-4">
-        <%= form.label :cpf, style: "display: block" %>
-        <%= form.text_field :cpf, class: 'form-control' %>
-      </div>
-      <div class="col-md-4">
-        <%= form.label :email, style: "display: block" %>
-        <%= form.text_field :email, class: 'form-control' %>
-      </div>
       <div class="col-md-4">
         <%= form.label :contato, style: "display: block" %>
         <%= form.text_field :contato, class: 'form-control' %>
       </div>
-      <div class="col-md-6">
-        <%= form.label :nome_mae, style: "display: block" %>
-        <%= form.text_field :nome_mae, class: 'form-control' %>
-      </div>
 
-      <div class="col-md-6">
-        <%= form.label :nome_pai, style: "display: block" %>
-        <%= form.text_field :nome_pai, class: 'form-control' %>
-      </div>
       <div class="col-md-6">
         <%= form.label :cep, style: "display: block" %>
         <%= form.text_field :cep, class: 'form-control' %>
@@ -56,12 +30,10 @@
         <%= form.label :logradouro, style: "display: block" %>
         <%= form.text_field :logradouro, class: 'form-control' %>
       </div>
-
       <div class="col-md-6">
         <%= form.label :bairro, style: "display: block" %>
         <%= form.text_field :bairro, class: 'form-control' %>
       </div>
-
       <div class="col-md-6">
         <%= form.label :municipio_id, style: "display: block" %>
         <%#= h form.text_field :municipio_id, class: 'form-control select2ajaxFull',-->
@@ -85,14 +57,11 @@
       </div>
     </div>
     <div class="panel-footer">
-
       <%= form.submit 'Salvar' %>
       <div class="pull-right">
-        <%= link_to "Voltar a Lista", alunos_path %>
       </div>
     </div>
   </div>
-
 <% end %>
 
 <script>

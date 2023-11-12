@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_26_205947) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_11_025533) do
   create_table "agenda_alunos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "aluno_id", null: false
     t.bigint "agenda_professor_id", null: false
@@ -47,6 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_205947) do
     t.datetime "updated_at", null: false
     t.string "cep"
     t.string "contato"
+    t.bigint "user_id"
   end
 
   create_table "areas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -106,6 +107,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_205947) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sessions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "session_id", null: false
+    t.text "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
+    t.index ["updated_at"], name: "index_sessions_on_updated_at"
+  end
+
   create_table "users", id: :integer, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
@@ -115,6 +125,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_205947) do
     t.datetime "remember_created_at", precision: nil
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

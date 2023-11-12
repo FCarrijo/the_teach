@@ -1,6 +1,6 @@
 class DisciplinasController < ApplicationController
   before_action :set_disciplina, only: %i[ show edit update destroy ]
-
+  load_and_authorize_resource
   # GET /disciplinas or /disciplinas.json
   def index
     @disciplinas = Disciplina.all

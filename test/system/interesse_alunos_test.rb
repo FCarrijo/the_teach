@@ -7,7 +7,7 @@ class InteresseAlunosTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit interesse_alunos_url
-    assert_selector "h1", text: "Interesse alunos"
+    assert_selector "h1", text: "Interesse area_aluno"
   end
 
   test "should create interesse aluno" do

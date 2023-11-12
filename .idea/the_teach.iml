@@ -37,6 +37,7 @@
     <orderEntry type="library" scope="PROVIDED" name="activejob (v7.0.8, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activemodel (v7.0.8, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activerecord (v7.0.8, rbenv: 3.2.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activerecord-session_store (v2.1.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activestorage (v7.0.8, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v7.0.8, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.8.5, rbenv: 3.2.2) [gem]" level="application" />
@@ -55,7 +56,9 @@
     <orderEntry type="library" scope="PROVIDED" name="brstring (v3.3.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.4, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v2.4.21, rbenv: 3.2.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="cancancan (v3.5.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capybara (v3.39.2, rbenv: 3.2.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="cgi (v0.4.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="climate_control (v0.2.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.2.2, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.6, rbenv: 3.2.2) [gem]" level="application" />
@@ -85,6 +88,7 @@
     <orderEntry type="library" scope="PROVIDED" name="mini_mime (v1.1.5, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="minitest (v5.20.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="msgpack (v1.7.2, rbenv: 3.2.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.15.0, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mysql2 (v0.5.5, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="net-imap (v0.4.2, rbenv: 3.2.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="net-pop (v0.1.2, rbenv: 3.2.2) [gem]" level="application" />
@@ -150,8 +154,10 @@
         <option value="active_record:application_record" />
         <option value="active_record:devise" />
         <option value="active_record:multi_db" />
+        <option value="active_record:session_migration" />
         <option value="application_record" />
         <option value="benchmark" />
+        <option value="cancan:ability" />
         <option value="channel" />
         <option value="controller" />
         <option value="devise" />
@@ -192,8 +198,10 @@
         <option value="active_record:application_record" />
         <option value="active_record:devise" />
         <option value="active_record:multi_db" />
+        <option value="active_record:session_migration" />
         <option value="application_record" />
         <option value="benchmark" />
+        <option value="cancan:ability" />
         <option value="channel" />
         <option value="controller" />
         <option value="devise" />
@@ -358,6 +366,14 @@
               <RakeTaskImpl id="seed">
                 <subtasks>
                   <RakeTaskImpl description="Truncates tables of each database for current environment and loads the seeds" fullCommand="db:seed:replant" id="replant" />
+                </subtasks>
+              </RakeTaskImpl>
+              <RakeTaskImpl id="sessions">
+                <subtasks>
+                  <RakeTaskImpl description="Clear the sessions table" fullCommand="db:sessions:clear" id="clear" />
+                  <RakeTaskImpl description="Creates a sessions migration for use with ActiveRecord::SessionStore" fullCommand="db:sessions:create" id="create" />
+                  <RakeTaskImpl description="Trim old sessions from the table (default: &gt; 30 days)" fullCommand="db:sessions:trim" id="trim" />
+                  <RakeTaskImpl description="Upgrade current sessions in the database to the secure version" fullCommand="db:sessions:upgrade" id="upgrade" />
                 </subtasks>
               </RakeTaskImpl>
               <RakeTaskImpl description="Creates all databases, loads all schemas, and initializes with the seed data (use db:reset to also drop all databases first)" fullCommand="db:setup" id="setup" />

@@ -1,6 +1,6 @@
 class InteresseAlunosController < ApplicationController
   before_action :set_interesse_aluno, only: %i[ show edit update destroy ]
-
+  load_and_authorize_resource
   # GET /interesse_alunos or /interesse_alunos.json
   def index
     @interesse_alunos = InteresseAluno.all

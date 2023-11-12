@@ -1,0 +1,12 @@
+<tr>
+  <td>
+    <%= professor.nome %>
+  </td>
+  <td>
+    <ul>
+      <% professor&.agenda_professors.map { |x| x.disciplina.nome }.uniq.each do |disciplina| %>
+        <li><%= disciplina %></li>
+      <% end %>
+    </ul>
+  </td>
+</tr>

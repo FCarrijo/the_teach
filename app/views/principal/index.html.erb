@@ -1,1 +1,18 @@
+<% if session[:aluno_id].present? %>
 
+  <a href="<%= area_aluno_meus_dados_path %>" class="btn btn-info">
+    <i class="menu-icon fa fa-graduation-cap"></i>
+    <span class="menu-text"> Meus Dados </span>
+  </a>
+
+  <a href="<%= area_aluno_agenda_alunos_path %>" class="btn btn-success">
+    <i class="menu-icon fa fa-calendar"></i>
+    <span class="menu-text"> Minha Agenda </span>
+  </a>
+
+  <a href="<%= area_aluno_docentes_path %>" class="btn btn-info">
+    <i class="menu-icon fa fa-graduation-cap"></i>
+    <span class="menu-text"> Professores </span>
+  </a>
+
+<% end %>

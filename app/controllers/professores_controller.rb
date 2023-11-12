@@ -1,6 +1,6 @@
 class ProfessoresController < ApplicationController
   before_action :set_professor, only: %i[ show edit update destroy ]
-
+  load_and_authorize_resource
   # GET /professores or /professores.json
   def index
     @professors = Professor.all

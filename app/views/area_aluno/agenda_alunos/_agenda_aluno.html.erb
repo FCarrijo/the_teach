@@ -3,9 +3,6 @@
     <%= agenda_aluno.id %>
   </td>
   <td>
-    <%= agenda_aluno.aluno.nome %>
-  </td>
-  <td>
     <%= agenda_aluno.agenda_professor.professor.nome %>
   </td>
   <td>
@@ -18,8 +15,8 @@
     <%= agenda_aluno.agenda_professor.horario %>
   </td>
   <td style="text-align: center">
-    <%= link_to "Editar", edit_agenda_aluno_path(agenda_aluno.id), class: 'btn btn-warning btn-xs' %>
-    <%= link_to "Excluir", agenda_aluno_path(agenda_aluno.id),
+    <%= link_to "Editar", edit_area_aluno_agenda_aluno_path(agenda_aluno.id), class: 'btn btn-warning btn-xs' %>
+    <%= link_to "Excluir", area_aluno_agenda_aluno_path(agenda_aluno.id),
                 method: :delete, class: 'btn btn-danger btn-xs',
                 data: { "turbo-method": :delete, confirm: 'Deseja realmente excluir?' } %>
   </td>

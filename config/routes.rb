@@ -4,8 +4,13 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
+  namespace :area_aluno do
+    resources :agenda_alunos, path: :agenda
+    resources :docentes
+    resources :meus_dados
+  end
   resources :interesse_alunos
-  resources :agenda_alunos
+
   resources :agenda_professores do
     get :busca_professores_disciplina, on: :collection
   end

@@ -1,4 +1,4 @@
-<%= form_with(model: agenda_aluno) do |form| %>
+<%= form_for @genda_aluno do |form| %>
   <div class="panel panel-primary">
     <div class="panel-heading" id="title_form">Agenda do Aluno
     </div>
@@ -16,9 +16,7 @@
 
       <div class="row">
         <div class="col-md-12 div_aluno">
-          <%= form.label :aluno_id, style: "display: block" %>
-          <%= form.select :aluno_id, Aluno.all.collect { |e| [e.nome.upcase, e.id] },
-                          { class: 'form-control' }, { style: 'width: 100%' } %>
+          <%= form.hidden_field :aluno_id %>
         </div>
       </div>
 
@@ -54,7 +52,7 @@
 
       <%= form.submit 'Salvar' %>
       <div class="pull-right">
-        <%= link_to "Voltar a Lista", agenda_alunos_path %>
+        <%= link_to "Voltar a Lista", area_aluno_agenda_alunos_path %>
       </div>
     </div>
   </div>

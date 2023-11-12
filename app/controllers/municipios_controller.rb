@@ -1,6 +1,6 @@
 class MunicipiosController < ApplicationController
   before_action :set_municipio, only: %i[ show edit update destroy ]
-
+  load_and_authorize_resource
   # GET /municipios or /municipios.json
   def index
     @municipios = Municipio.eager_load(:estado).all.order("estados.nome, municipios.nome")

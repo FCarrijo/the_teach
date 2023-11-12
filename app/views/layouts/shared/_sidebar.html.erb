@@ -16,62 +16,106 @@
       <b class="arrow"></b>
     </li>
 
+    <% if session[:aluno_id].present? %>
+      <li class="">
+        <a href="<%= area_aluno_meus_dados_path %>">
+          <i class="menu-icon fa fa-user"></i>
+          <span class="menu-text"> Meus Dados </span>
+        </a>
+        <b class="arrow"></b>
+      </li>
+      <li class="">
+        <a href="<%= area_aluno_agenda_alunos_path %>">
+          <i class="menu-icon fa fa-calendar"></i>
+          <span class="menu-text"> Minha Agenda </span>
+        </a>
+        <b class="arrow"></b>
+      </li>
+      <li class="">
+        <a href="<%= area_aluno_docentes_path %>">
+          <i class="menu-icon fa fa-user"></i>
+          <span class="menu-text"> Professores</span>
+        </a>
+        <b class="arrow"></b>
+      </li>
+    <% end %>
 
-    <li class="">
-      <a href="<%= agenda_alunos_path %>">
-        <i class="menu-icon fa fa-user"></i>
-        <span class="menu-text"> Minha Agenda </span>
-      </a>
-      <b class="arrow"></b>
-    </li>
+    <% if (can? :manage, :Estado) ||
+      (can? :manage, :Pais) ||
+      (can? :manage, :Municipio) ||
+      (can? :manage, :Escolaridade) ||
+      (can? :manage, :Disciplina) ||
+      (can? :manage, :Professor) ||
+      (can? :manage, :Area) %>
+      <li class="">
+        <a href="#" class="dropdown-toggle">
+          <i class="menu-icon fa fa-tag"></i>
+          <span class="menu-text">Cadastros Básicos  </span>
 
-    <li class="">
-      <a href="#" class="dropdown-toggle">
-        <i class="menu-icon fa fa-tag"></i>
-        <span class="menu-text">Cadastros Básicos  </span>
+          <b class="arrow fa fa-angle-down"></b>
+        </a>
 
-        <b class="arrow fa fa-angle-down"></b>
-      </a>
+        <b class="arrow"></b>
 
-      <b class="arrow"></b>
-
-      <ul class="submenu nav-hide" style="display: none;">
-        <li class="">
-          <%= link_to "Estados", estados_path %>
-          <i class="menu-icon fa fa-caret-right"></i>
-          <b class="arrow"></b>
-        </li>
-        <li class="">
-          <%= link_to "Países", paises_path %>
-          <i class="menu-icon fa fa-caret-right"></i>
-          <b class="arrow"></b>
-        </li>
-        <li class="">
-          <%= link_to "Municípios", municipios_path %>
-          <i class="menu-icon fa fa-caret-right"></i>
-          <b class="arrow"></b>
-        </li>
-        <li class="">
-          <%= link_to "Escolaridade", escolaridades_path %>
-          <i class="menu-icon fa fa-caret-right"></i>
-          <b class="arrow"></b>
-        </li>
-        <li class="">
-          <%= link_to "Disciplinas", disciplinas_path %>
-          <i class="menu-icon fa fa-caret-right"></i>
-          <b class="arrow"></b>
-        </li>
-        <li class="">
-          <%= link_to "Áreas", areas_path %>
-          <i class="menu-icon fa fa-caret-right"></i>
-          <b class="arrow"></b>
-        </li>
-        <li class="">
-          <%= link_to "Professores", professores_path %>
-          <i class="menu-icon fa fa-caret-right"></i>
-          <b class="arrow"></b>
-        </li>
-      </ul>
-    </li>
+        <ul class="submenu nav-hide" style="display: none;">
+          <% if can? :manage, :Estado %>
+            <li class="">
+              <%= link_to "Estados", estados_path %>
+              <i class="menu-icon fa fa-caret-right"></i>
+              <b class="arrow"></b>
+            </li>
+          <% end %>
+          <% if can? :manage, :Pais %>
+            <li class="">
+              <%= link_to "Países", paises_path %>
+              <i class="menu-icon fa fa-caret-right"></i>
+              <b class="arrow"></b>
+            </li>
+          <% end %>
+          <% if can? :manage, :Municipio %>
+            <li class="">
+              <%= link_to "Municípios", municipios_path %>
+              <i class="menu-icon fa fa-caret-right"></i>
+              <b class="arrow"></b>
+            </li>
+          <% end %>
+          <% if can? :manage, :Escolaridade %>
+            <li class="">
+              <%= link_to "Escolaridade", escolaridades_path %>
+              <i class="menu-icon fa fa-caret-right"></i>
+              <b class="arrow"></b>
+            </li>
+          <% end %>
+          <% if can? :manage, :Disciplina %>
+            <li class="">
+              <%= link_to "Disciplinas", disciplinas_path %>
+              <i class="menu-icon fa fa-caret-right"></i>
+              <b class="arrow"></b>
+            </li>
+          <% end %>
+          <% if can? :manage, :Area %>
+            <li class="">
+              <%= link_to "Áreas", areas_path %>
+              <i class="menu-icon fa fa-caret-right"></i>
+              <b class="arrow"></b>
+            </li>
+          <% end %>
+          <% if can? :manage, :Professor %>
+            <li class="">
+              <%= link_to "Professores", professores_path %>
+              <i class="menu-icon fa fa-caret-right"></i>
+              <b class="arrow"></b>
+            </li>
+          <% end %>
+          <% if can? :manage, :Aluno %>
+            <li class="">
+              <%= link_to "Alunos", alunos_path %>
+              <i class="menu-icon fa fa-caret-right"></i>
+              <b class="arrow"></b>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+    <% end %>
   </ul><!-- /.nav-list -->
 </div>

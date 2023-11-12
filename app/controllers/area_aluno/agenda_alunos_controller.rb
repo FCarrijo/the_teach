@@ -1,9 +1,10 @@
-class AgendaAlunosController < ApplicationController
+class AreaAluno::AgendaAlunosController < ApplicationController
   before_action :set_agenda_aluno, only: %i[ show edit update destroy ]
-
   # GET /agenda_alunos or /agenda_alunos.json
   def index
-    @agenda_alunos = AgendaAluno.all
+    aluno_id = session[:aluno_id]
+    aluno_id = Aluno.find_by(user_id: current_user).id unless aluno_id.present?
+    @agenda_alunos = AgendaAluno.where(aluno_id: aluno_id)
   end
 
   # GET /agenda_alunos/1 or /agenda_alunos/1.json
@@ -12,7 +13,7 @@ class AgendaAlunosController < ApplicationController
 
   # GET /agenda_alunos/new
   def new
-    @agenda_aluno = AgendaAluno.new
+    @agenda_aluno = AgendaAluno.new(aluno_id: Aluno.find_by(user_id: current_user).id)
   end
 
   # GET /agenda_alunos/1/edit
@@ -25,7 +26,7 @@ class AgendaAlunosController < ApplicationController
 
     respond_to do |format|
       if @agenda_aluno.save
-        format.html { redirect_to agenda_alunos_path, notice: "Agenda do aluno criada com sucesso." }
+        format.html { redirect_to area_aluno_agenda_alunos_path, notice: "Agenda do aluno criada com sucesso." }
         format.json { render :show, status: :created, location: @agenda_aluno }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +39,7 @@ class AgendaAlunosController < ApplicationController
   def update
     respond_to do |format|
       if @agenda_aluno.update(agenda_aluno_params)
-        format.html { redirect_to agenda_alunos_path, notice: "Agenda do aluno alterada com sucesso." }
+        format.html { redirect_to area_aluno_agenda_alunos_path, notice: "Agenda do aluno alterada com sucesso." }
         format.json { render :show, status: :ok, location: @agenda_aluno }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +53,20 @@ class AgendaAlunosController < ApplicationController
     @agenda_aluno.destroy
 
     respond_to do |format|
-      format.html { redirect_to agenda_alunos_path, notice: "Agenda do aluno excluída com sucesso." }
+      format.html { redirect_to area_aluno_agenda_alunos_path, notice: "Agenda do aluno excluída com sucesso." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_agenda_aluno
-      @agenda_aluno = AgendaAluno.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def agenda_aluno_params
-      params.require(:agenda_aluno).permit(:aluno_id, :agenda_professor_id, :observacao)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_agenda_aluno
+    @agenda_aluno = AgendaAluno.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def agenda_aluno_params
+    params.require(:agenda_aluno).permit(:aluno_id, :agenda_professor_id, :observacao)
+  end
 end

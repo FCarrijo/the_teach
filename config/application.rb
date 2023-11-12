@@ -18,6 +18,9 @@ module TheTeach
     config.i18n.available_locales = ["pt-BR"]
     config.active_record.belongs_to_required_by_default = false
     config.active_record.yaml_column_permitted_classes = [Symbol, Date, Time, ActiveSupport::TimeWithZone, ActiveSupport::TimeZone, BigDecimal]
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::ActiveRecordStore
+    config.middleware.use ActionDispatch::Flash
 
     config.to_prepare do
       Devise::SessionsController.layout "login"

@@ -1,6 +1,6 @@
 class EscolaridadesController < ApplicationController
   before_action :set_escolaridade, only: %i[ show edit update destroy ]
-
+  load_and_authorize_resource
   # GET /escolaridades or /escolaridades.json
   def index
     @escolaridades = Escolaridade.all

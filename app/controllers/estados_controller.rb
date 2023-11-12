@@ -1,6 +1,6 @@
 class EstadosController < ApplicationController
   before_action :set_estado, only: %i[ show edit update destroy ]
-
+  load_and_authorize_resource
   # GET /estados or /estados.json
   def index
     @estados = Estado.all

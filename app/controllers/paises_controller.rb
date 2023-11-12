@@ -1,5 +1,6 @@
 class PaisesController < ApplicationController
   before_action :set_pais, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
 
   # GET /pais or /pais.json
   def index

@@ -1,6 +1,6 @@
 class AgendaProfessoresController < ApplicationController
   before_action :set_agenda_professor, only: %i[ show edit update destroy ]
-
+  load_and_authorize_resource
   # GET /agenda_professores or /agenda_professores.json
   def index
     @agenda_professores = AgendaProfessor.all

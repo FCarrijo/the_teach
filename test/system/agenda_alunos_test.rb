@@ -7,7 +7,7 @@ class AgendaAlunosTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit agenda_alunos_url
-    assert_selector "h1", text: "Agenda alunos"
+    assert_selector "h1", text: "Agenda area_aluno"
   end
 
   test "should create agenda aluno" do

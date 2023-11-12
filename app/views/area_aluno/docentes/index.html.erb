@@ -1,0 +1,24 @@
+<p style="color: green"><%= notice %></p>
+
+<h1></h1>
+<div class="panel panel-primary">
+  <div class="panel-heading">Professores
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-striped tablesorter">
+        <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col" style="width: 25%">Disciplinas</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @professors.each do |professor| %>
+          <%= render 'area_aluno/docentes/professor', professor: professor %>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
