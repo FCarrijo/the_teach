@@ -2,9 +2,9 @@
 
 [Fabiane Carrijo Gonçalves de Menezes](https://github.com/FCarrijo)
 
-Kleber Paulo Alves de Carvalho
+[Kleber Paulo Alves de Carvalho](https://github.com/Bildem7402)
 
-Maria Phyllis Mocock Ferreira Furtado Soares
+[Maria Phyllis Mocock Ferreira Furtado Soares](https://github.com/mariaphyllis)
 
 [Willian dos Santos Rodrigues](https://github.com/willianrdg)
 
