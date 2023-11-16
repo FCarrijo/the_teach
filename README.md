@@ -4,7 +4,7 @@ Está é uma aplicação destinada a professores e alunos que buscam aulas parti
 
 ![Chat Preview](https://github.com/FCarrijo/the_teach/blob/master/public/tela_principal.png)
 
-## Technology
+## Tecnologias
 
 As tecnologias utilizadas neste projeto são:
 
@@ -12,7 +12,7 @@ As tecnologias utilizadas neste projeto são:
 * Ruby on Rails version 7.0.4
 * Mysql
 
-## Services Used
+## Serviços utilizados
 
 * Github
 
@@ -30,7 +30,7 @@ As tecnologias utilizadas neste projeto são:
 * activerecord-session_store
 
 
-## Used Tools
+## Ferramentas
 
 * [DBBeaver](https://dbeaver.io/download/)
 
@@ -38,13 +38,13 @@ As tecnologias utilizadas neste projeto são:
   ![Chat Preview](https://github.com/FCarrijo/the_teach/blob/master/public/DER.png)
 
 
-## Getting started
+## Instruções para executar o projeto
 
 * Instalar o rbenv
 
 
 
-## Features
+## Funcionalidades
 
 
 ## Links
@@ -68,7 +68,7 @@ Instruções:
       fabianecarrijo21@gmail.com directly instead of using issue tracker. We value your effort
       to improve the security and privacy of this project!
 
-## Versioning
+## Versão
 
 1.0.0.0
 
