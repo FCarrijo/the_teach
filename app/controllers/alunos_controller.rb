@@ -24,11 +24,16 @@ class AlunosController < ApplicationController
     @aluno = Aluno.new(aluno_params)
 
     respond_to do |format|
-      user = User.create(email: @aluno.email, name: @aluno.nome,  password: '1234')
-      @aluno.user_id = user.id
-      if @aluno.save
-        format.html { redirect_to alunos_path, notice: "Aluno cadastrado com sucesso." }
-        format.json { render :show, status: :created, location: @aluno }
+      user = User.where(email: @aluno.email).first_or_create(name: @aluno.nome, password: '1234')
+      if user.present?
+        @aluno.user_id = user.id
+        if @aluno.save
+          format.html { redirect_to alunos_path, notice: "Aluno cadastrado com sucesso." }
+          format.json { render :show, status: :created, location: @aluno }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @aluno.errors, status: :unprocessable_entity }
+        end
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @aluno.errors, status: :unprocessable_entity }
@@ -52,7 +57,6 @@ class AlunosController < ApplicationController
   # DELETE /area_aluno/1 or /area_aluno/1.json
   def destroy
     @aluno.destroy
-
     respond_to do |format|
       format.html { redirect_to alunos_url, notice: "Aluno excluído com sucesso." }
       format.json { head :no_content }

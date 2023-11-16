@@ -13,8 +13,10 @@
   </td>
   <td style="text-align: center">
     <%= link_to "Editar", edit_aluno_path(aluno.id), class: 'btn btn-warning btn-xs' %>
-    <%= link_to "Excluir", aluno_path(aluno.id),
-                method: :delete, class: 'btn btn-danger btn-xs',
-                data: { "turbo-method": :delete, confirm: 'Deseja realmente excluir?' } %>
+    <%= button_to "Excluir",
+                  aluno_path(aluno.id), method: :delete,
+                  class: 'btn btn-danger btn-xs',
+                  confirm: 'Deseja realmente excluir?',
+                  data: { "turbo-method": :delete, method: :delete, confirm: 'Deseja realmente excluir?' } %>
   </td>
 </tr>
