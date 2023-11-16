@@ -38,7 +38,7 @@ As tecnologias e ferramentas utilizadas neste projeto são:
 
 ## Instruções de acesso
 
-[![Video](https://img.youtube.com/vi/t3HOERBpH_8/hqdefault.jpg)](https://www.youtube.com/watch?v=t3HOERBpH_8){:target="_blank"}
+[![Video](https://img.youtube.com/vi/t3HOERBpH_8/hqdefault.jpg)](https://www.youtube.com/watch?v=t3HOERBpH_8)
 
 O Administrador precisa cadastrar os alunos e professores. A senha padrão para o Aluno é '1234'. Ao logar com o aluno, ele poderá alterar seu cadastro, visualizar os professores e agendar um aula particular em Minha Agenda.
 
