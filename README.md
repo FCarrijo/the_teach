@@ -35,6 +35,7 @@ As tecnologias e ferramentas utilizadas neste projeto são:
 * Criar um banco de dados utilizando as configurações do arquivo [database.yml](config/database.yml)
 * Executar o comando *bundle install* pra instalar as gems do projeto
 * Executar o comando *rake db migrate* para criar as tabelas no banco
+* Iniciar o servidor com o comando *rails s*
 
 ## Instruções de acesso
 
